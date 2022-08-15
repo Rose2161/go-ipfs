@@ -76,7 +76,7 @@ require (
 	github.com/libp2p/go-libp2p-mplex v0.7.0
 	github.com/libp2p/go-libp2p-noise v0.4.0
 	github.com/libp2p/go-libp2p-peerstore v0.6.0
-	github.com/libp2p/go-libp2p-pubsub v0.6.1
+	github.com/libp2p/go-libp2p-pubsub v0.7.1
 	github.com/libp2p/go-libp2p-pubsub-router v0.5.0
 	github.com/libp2p/go-libp2p-quic-transport v0.17.0
 	github.com/libp2p/go-libp2p-record v0.1.3
@@ -125,6 +125,9 @@ require (
 	github.com/ipfs/go-log/v2 v2.5.1
 	github.com/libp2p/go-libp2p v0.18.0
 	github.com/libp2p/go-libp2p-core v0.15.1
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.34.0
+	go.uber.org/dig v1.15.0
+	go.uber.org/fx v1.18.1
 )
 
 require (
