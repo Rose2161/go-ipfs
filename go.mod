@@ -114,7 +114,7 @@ require (
 	go.opentelemetry.io/otel/exporters/zipkin v1.7.0
 	go.opentelemetry.io/otel/sdk v1.9.0
 	go.opentelemetry.io/otel/trace v1.9.0
-	go.uber.org/zap v1.21.0
+	go.uber.org/zap v1.22.0
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
 	golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f
 	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a
@@ -125,6 +125,9 @@ require (
 	github.com/ipfs/go-log/v2 v2.5.1
 	github.com/libp2p/go-libp2p v0.18.0
 	github.com/libp2p/go-libp2p-core v0.15.1
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.34.0
+	go.uber.org/dig v1.15.0
+	go.uber.org/fx v1.18.1
 )
 
 require (
