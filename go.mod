@@ -33,7 +33,7 @@ require (
 	github.com/ipfs/go-ipfs-blockstore v1.2.0
 	github.com/ipfs/go-ipfs-chunker v0.0.5
 	github.com/ipfs/go-ipfs-cmds v0.8.1
-	github.com/ipfs/go-ipfs-exchange-interface v0.1.0
+	github.com/ipfs/go-ipfs-exchange-interface v0.2.0
 	github.com/ipfs/go-ipfs-exchange-offline v0.2.0
 	github.com/ipfs/go-ipfs-files v0.1.1
 	github.com/ipfs/go-ipfs-keystore v0.0.2
@@ -93,7 +93,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/multiformats/go-multiaddr v0.5.0
 	github.com/multiformats/go-multiaddr-dns v0.3.1
-	github.com/multiformats/go-multibase v0.0.3
+	github.com/multiformats/go-multibase v0.1.1
 	github.com/multiformats/go-multicodec v0.5.0
 	github.com/multiformats/go-multihash v0.2.0
 	github.com/opentracing/opentracing-go v1.2.0
@@ -125,6 +125,9 @@ require (
 	github.com/ipfs/go-log/v2 v2.5.1
 	github.com/libp2p/go-libp2p v0.18.0
 	github.com/libp2p/go-libp2p-core v0.15.1
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.34.0
+	go.uber.org/dig v1.15.0
+	go.uber.org/fx v1.18.1
 )
 
 require (
