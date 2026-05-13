@@ -238,6 +238,10 @@ require (
 	go4.org v0.0.0-20200411211856-f5505b9728dd // indirect
 	golang.org/x/exp v0.0.0-20221106115401-f9659909a136 // indirect
 	golang.org/x/mod v0.8.0 // indirect
+	golang.org/x/net v0.23.0 // indirect
+	golang.org/x/oauth2 v0.0.0-20220223155221-ee480838109b // indirect
+	golang.org/x/term v0.18.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/net v0.21.0 // indirect
 	golang.org/x/oauth2 v0.0.0-20220223155221-ee480838109b // indirect
 	golang.org/x/term v0.20.0 // indirect
