@@ -10,7 +10,7 @@ import (
 	"net/textproto"
 	"net/url"
 	"os"
-	gopath "path"
+
 	"regexp"
 	"runtime/debug"
 	"strings"
@@ -975,6 +975,9 @@ func handleUnsupportedHeaders(r *http.Request) (err *requestError) {
 // TLDR: redirect /ipfs/?uri=ipfs%3A%2F%2Fcid%3Fquery%3Dval to /ipfs/cid?query=val
 func handleProtocolHandlerRedirect(w http.ResponseWriter, r *http.Request, logger *zap.SugaredLogger) (requestHandled bool) {
 	if uriParam := r.URL.Query().Get("uri"); uriParam != "" {
+		// Some user agents treat backslashes as forward slashes; normalize before parsing.
+		uriParam = strings.ReplaceAll(uriParam, "\\", "/")
+
 		u, err := url.Parse(uriParam)
 		if err != nil {
 			webError(w, "failed to parse uri query parameter", err, http.StatusBadRequest)
@@ -984,12 +987,25 @@ func handleProtocolHandlerRedirect(w http.ResponseWriter, r *http.Request, logge
 			webError(w, "uri query parameter scheme must be ipfs or ipns", err, http.StatusBadRequest)
 			return true
 		}
-		path := u.Path
-		if u.RawQuery != "" { // preserve query if present
-			path = path + "?" + u.RawQuery
+		if u.Host == "" || strings.Contains(u.Host, "/") || strings.Contains(u.Host, "\\") {
+			webError(w, "uri query parameter must include a valid content identifier", fmt.Errorf("invalid host in uri query parameter"), http.StatusBadRequest)
+			return true
 		}
 
-		redirectURL := gopath.Join("/", u.Scheme, u.Host, path)
+		cleanPath := u.Path
+		if strings.HasPrefix(cleanPath, "//") {
+			webError(w, "uri query parameter contains invalid path", fmt.Errorf("invalid path in uri query parameter"), http.StatusBadRequest)
+			return true
+		}
+		if cleanPath == "" {
+			cleanPath = "/"
+		}
+
+		redirectURL := "/" + u.Scheme + "/" + u.Host + cleanPath
+		if u.RawQuery != "" { // preserve query if present
+			redirectURL = redirectURL + "?" + u.RawQuery
+		}
+
 		logger.Debugw("uri param, redirect", "to", redirectURL, "status", http.StatusMovedPermanently)
 		http.Redirect(w, r, redirectURL, http.StatusMovedPermanently)
 		return true
