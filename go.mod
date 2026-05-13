@@ -110,9 +110,9 @@ require (
 	go.uber.org/dig v1.15.0
 	go.uber.org/fx v1.17.1
 	go.uber.org/zap v1.23.0
-	golang.org/x/crypto v0.21.0
+	golang.org/x/crypto v0.23.0
 	golang.org/x/sync v0.1.0
-	golang.org/x/sys v0.18.0
+	golang.org/x/sys v0.20.0
 )
 
 require (
@@ -242,6 +242,10 @@ require (
 	golang.org/x/oauth2 v0.0.0-20220223155221-ee480838109b // indirect
 	golang.org/x/term v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/net v0.21.0 // indirect
+	golang.org/x/oauth2 v0.0.0-20220223155221-ee480838109b // indirect
+	golang.org/x/term v0.20.0 // indirect
+	golang.org/x/text v0.15.0 // indirect
 	golang.org/x/tools v0.6.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f // indirect
 	google.golang.org/appengine v1.6.6 // indirect
